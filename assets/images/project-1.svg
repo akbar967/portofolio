@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <linearGradient id="p1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121829"/>
+      <stop offset="100%" stop-color="#0a0d17"/>
+    </linearGradient>
+    <linearGradient id="neon1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6C63FF"/>
+      <stop offset="100%" stop-color="#00E5FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="380" rx="16" fill="url(#p1Grad)"/>
+  <!-- Window bar -->
+  <rect width="600" height="36" rx="16" fill="#182238"/>
+  <circle cx="24" cy="18" r="5" fill="#EF4444"/>
+  <circle cx="40" cy="18" r="5" fill="#F59E0B"/>
+  <circle cx="56" cy="18" r="5" fill="#10B981"/>
+  <text x="300" y="22" font-family="'Inter', sans-serif" font-size="12" fill="#94A3B8" text-anchor="middle">Project Showcase #1</text>
+  
+  <!-- Content Area -->
+  <g transform="translate(60, 80)">
+    <!-- Browser/UI Card mockup -->
+    <rect width="480" height="240" rx="12" fill="#0d1322" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <!-- Decorative dashboard graphs -->
+    <rect x="25" y="25" width="200" height="24" rx="6" fill="#1e293b"/>
+    <rect x="25" y="60" width="140" height="14" rx="4" fill="#334155" opacity="0.6"/>
+    
+    <rect x="25" y="100" width="90" height="80" rx="8" fill="#1e293b"/>
+    <rect x="130" y="100" width="90" height="80" rx="8" fill="#1e293b"/>
+    <rect x="235" y="100" width="90" height="80" rx="8" fill="#1e293b"/>
+    <rect x="340" y="100" width="115" height="80" rx="8" fill="url(#neon1)" opacity="0.15"/>
+    <rect x="340" y="100" width="115" height="80" rx="8" fill="none" stroke="#00E5FF" stroke-width="1.5"/>
+
+    <!-- Placeholder text -->
+    <text x="240" y="215" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#00E5FF" text-anchor="middle">Preview Proyek / Web Application</text>
+  </g>
+</svg>

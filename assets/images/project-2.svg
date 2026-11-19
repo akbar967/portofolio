@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <linearGradient id="p2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141a2e"/>
+      <stop offset="100%" stop-color="#080c18"/>
+    </linearGradient>
+    <linearGradient id="neon2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF4D9D"/>
+      <stop offset="100%" stop-color="#6C63FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="380" rx="16" fill="url(#p2Grad)"/>
+  <!-- Window bar -->
+  <rect width="600" height="36" rx="16" fill="#182238"/>
+  <circle cx="24" cy="18" r="5" fill="#EF4444"/>
+  <circle cx="40" cy="18" r="5" fill="#F59E0B"/>
+  <circle cx="56" cy="18" r="5" fill="#10B981"/>
+  <text x="300" y="22" font-family="'Inter', sans-serif" font-size="12" fill="#94A3B8" text-anchor="middle">Project Showcase #2</text>
+  
+  <!-- Mobile & Tablet Mockup -->
+  <g transform="translate(130, 70)">
+    <!-- Mobile Frame -->
+    <rect x="0" y="0" width="140" height="250" rx="20" fill="#0d111d" stroke="url(#neon2)" stroke-width="2"/>
+    <!-- Speaker notch -->
+    <rect x="45" y="10" width="50" height="4" rx="2" fill="#334155"/>
+    <!-- Screen content -->
+    <circle cx="70" cy="55" r="22" fill="#1e293b"/>
+    <rect x="25" y="90" width="90" height="12" rx="4" fill="#334155"/>
+    <rect x="35" y="110" width="70" height="8" rx="3" fill="#1e293b"/>
+    <rect x="15" y="135" width="110" height="35" rx="6" fill="#1e293b"/>
+    <rect x="15" y="180" width="110" height="35" rx="6" fill="#1e293b"/>
+    
+    <!-- Code Editor Card Beside -->
+    <rect x="165" y="30" width="180" height="190" rx="10" fill="#0a0f1d" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <rect x="180" y="50" width="80" height="8" rx="2" fill="#6C63FF"/>
+    <rect x="180" y="70" width="130" height="6" rx="2" fill="#38BDF8"/>
+    <rect x="195" y="85" width="110" height="6" rx="2" fill="#94A3B8"/>
+    <rect x="195" y="100" width="90" height="6" rx="2" fill="#F472B6"/>
+    <rect x="180" y="115" width="120" height="6" rx="2" fill="#4ADE80"/>
+    <rect x="180" y="150" width="140" height="24" rx="6" fill="url(#neon2)" opacity="0.3"/>
+    <text x="250" y="166" font-family="'Inter', sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">Mobile App Showcase</text>
+  </g>
+</svg>

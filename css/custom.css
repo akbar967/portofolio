@@ -1,0 +1,1335 @@
+/* Custom enhancements for Akbar Barokah's Portfolio */
+
+:root {
+  --bg-color: #050816;
+  --primary-color: #6c63ff;
+  --secondary-color: #00e5ff;
+  --accent-color: #ff4d9d;
+  --text-main: #ffffff;
+  --text-muted: #cbd5e1;
+}
+
+/* High-Contrast Readable Typography on Dark Background */
+.text-text-secondary,
+html[data-theme="dark"] .text-text-secondary {
+  color: #cbd5e1 !important;
+}
+
+html[data-theme="dark"] p {
+  color: #cbd5e1;
+}
+
+html[data-theme="dark"] strong {
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .text-white {
+  color: #ffffff !important;
+}
+
+/* Fix Tailwind font-size/color collision for text-base and sm:text-base */
+.text-base {
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+}
+@media (min-width: 640px) {
+  .sm\:text-base {
+    font-size: 1rem !important;
+    line-height: 1.5rem !important;
+  }
+}
+
+/* Scroll offset for navigation anchor links (#home, #about, #skills, etc.) */
+html {
+  scroll-padding-top: 7rem;
+}
+section[id] {
+  scroll-margin-top: 7rem;
+}
+
+/* Contact form inputs - white box with bold black typed text */
+#contact-form input,
+#contact-form textarea {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  font-weight: 500 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: #64748b !important;
+  opacity: 1 !important;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  border-color: #6c63ff !important;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.35) !important;
+  outline: none !important;
+}
+
+/* Orbiting Tech Stack Icons around Akbar's Photo */
+@keyframes orbitRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counterRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.orbit-track {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  animation: orbitRotate 18s linear infinite;
+  pointer-events: none;
+  z-index: 25;
+}
+
+@media (min-width: 640px) {
+  .orbit-track {
+    width: 410px;
+    height: 410px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .orbit-track {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+.orbit-path-ring {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 35px rgba(108, 99, 255, 0.15), inset 0 0 30px rgba(0, 229, 255, 0.08);
+  pointer-events: none;
+  z-index: 5;
+}
+
+@media (min-width: 640px) {
+  .orbit-path-ring {
+    width: 410px;
+    height: 410px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .orbit-path-ring {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+.orbit-item {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  margin: -23px;
+  pointer-events: auto;
+}
+
+@media (min-width: 640px) {
+  .orbit-item {
+    width: 52px;
+    height: 52px;
+    margin: -26px;
+  }
+}
+
+.orbit-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(9, 13, 30, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(108, 99, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: counterRotate 18s linear infinite;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.orbit-icon:hover {
+  transform: scale(1.25) !important;
+  border-color: rgba(0, 229, 255, 0.95);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.orbit-track:hover {
+  animation-play-state: paused;
+}
+.orbit-track:hover .orbit-icon {
+  animation-play-state: paused;
+}
+
+/* Floating Badge Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes floatSlowReverse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+.float-badge {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+.float-badge-reverse {
+  animation: floatSlowReverse 4.5s ease-in-out infinite;
+}
+
+/* Generous Spacing for Grids, Cards, and Badges */
+.projects-grid,
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem !important;
+}
+
+@media (min-width: 768px) {
+  .projects-grid,
+  .certs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.25rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-grid,
+  .certs-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem !important;
+  }
+}
+
+/* Ensure gap utility classes always work */
+.gap-1 { gap: 0.25rem !important; }
+.gap-1\.5 { gap: 0.375rem !important; }
+.gap-2 { gap: 0.5rem !important; }
+.gap-2\.5 { gap: 0.625rem !important; }
+.gap-3 { gap: 0.75rem !important; }
+.gap-4 { gap: 1rem !important; }
+.gap-6 { gap: 1.5rem !important; }
+.gap-8 { gap: 2rem !important; }
+.gap-10 { gap: 2.5rem !important; }
+.gap-12 { gap: 3rem !important; }
+
+/* Enhanced Project Card Spacing */
+.project-card {
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+}
+
+.project-tech-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #94a3b8;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.project-tech-badge:hover {
+  color: #ffffff;
+  border-color: rgba(108, 99, 255, 0.4);
+  background-color: rgba(108, 99, 255, 0.12);
+}
+
+/* Background grid pattern */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Radial ambient glow */
+.bg-radial-glow {
+  background: radial-gradient(circle at 50% 30%, rgba(108, 99, 255, 0.15) 0%, rgba(0, 229, 255, 0.08) 35%, transparent 70%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050816;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(108, 99, 255, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(108, 99, 255, 0.8);
+}
+
+/* Gradient line animation */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6C63FF, #00E5FF, #FF4D9D);
+  z-index: 9999;
+  transform-origin: 0% 50%;
+  transform: scaleX(0);
+}
+
+/* Card hover glow */
+.hover-glow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-glow:hover {
+  border-color: rgba(108, 99, 255, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(108, 99, 255, 0.3);
+  transform: translateY(-4px);
+}
+
+/* 3D Lanyard Container */
+#lanyard-container {
+  width: 100%;
+  height: 100%;
+  min-height: 550px;
+  position: relative;
+  touch-action: none;
+  cursor: grab;
+}
+#lanyard-container:active {
+  cursor: grabbing;
+}
+#lanyard-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Timeline style */
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1.5rem;
+  width: 2px;
+  background: linear-gradient(180deg, #6c63ff, #00e5ff, rgba(108, 99, 255, 0.1));
+}
+@media (min-width: 768px) {
+  .timeline-line {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Modal for Certificate Preview */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 22, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-box {
+  background: #0d1224;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.5rem;
+  max-width: 700px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.modal-overlay.active .modal-box {
+  transform: scale(1);
+}
+
+/* Pulse badge */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 229, 255, 0);
+  }
+}
+.pulse-badge {
+  animation: pulseGlow 2s infinite;
+}
+
+/* Mobile Menu Animation */
+#mobile-menu {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+#mobile-menu.menu-open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Placeholder badge styling */
+.placeholder-tag {
+  background: rgba(108, 99, 255, 0.12);
+  color: #00e5ff;
+  border: 1px dashed rgba(0, 229, 255, 0.4);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-family: monospace;
+}
+
+/* ============================================================
+   NAVBAR SPACING & BREATHING ROOM
+   ============================================================ */
+.navbar-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem !important; /* Spasi antar link navbar */
+  margin: 0 0.5rem !important;
+}
+
+@media (min-width: 1024px) {
+  .navbar-nav-links {
+    gap: 1.1rem !important;
+    margin: 0 1rem !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .navbar-nav-links {
+    gap: 1.5rem !important;
+    margin: 0 1.5rem !important;
+  }
+}
+
+.navbar-nav-links li a {
+  display: inline-block;
+  padding: 0.45rem 0.75rem !important;
+  border-radius: 0.75rem;
+  letter-spacing: 0.015em;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   3-WAY THEME SWITCHER (GELAP, TERANG, GALAXY, RAINBOW)
+   ============================================================ */
+.theme-switcher-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  padding: 3px;
+  gap: 3px;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  padding: 0;
+  border-radius: 9999px;
+  color: #94a3b8;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.theme-btn:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.theme-btn.active {
+  color: #ffffff !important;
+  background: linear-gradient(120deg, #6c63ff, #514ac7);
+  box-shadow: 0 0 16px rgba(108, 99, 255, 0.45);
+}
+
+/* ============================================================
+   GALAXY CANVAS / STARFIELD
+   ============================================================ */
+.galaxy-starfield-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+html[data-theme="galaxy"] .galaxy-starfield-canvas {
+  opacity: 1;
+}
+
+/* ============================================================
+   THEME 1: LIGHT MODE (MODE TERANG)
+   ============================================================ */
+html[data-theme="light"] {
+  --bg-color: #f8fafc;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+}
+
+html[data-theme="light"] body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html[data-theme="light"] .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px) !important;
+  opacity: 0.6 !important;
+}
+
+html[data-theme="light"] .bg-radial-glow {
+  background: radial-gradient(circle at 50% 25%, rgba(99, 102, 241, 0.12) 0%, rgba(14, 165, 233, 0.08) 35%, transparent 70%) !important;
+}
+
+html[data-theme="light"] header nav {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08) !important;
+}
+
+html[data-theme="light"] .navbar-nav-links a {
+  color: #475569 !important;
+}
+
+html[data-theme="light"] .navbar-nav-links a:hover {
+  color: #0f172a !important;
+  background-color: rgba(15, 23, 42, 0.06) !important;
+}
+
+html[data-theme="light"] .navbar-nav-links a.text-primary {
+  color: #4f46e5 !important;
+  background-color: rgba(79, 70, 229, 0.08) !important;
+}
+
+html[data-theme="light"] a span.text-white {
+  color: #0f172a !important;
+}
+
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4,
+html[data-theme="light"] h5 {
+  color: #0f172a !important;
+}
+
+html[data-theme="light"] .text-white {
+  color: #0f172a !important;
+}
+
+/* Maintain solid button white text */
+html[data-theme="light"] .btn-primary,
+html[data-theme="light"] .btn-primary *,
+html[data-theme="light"] .project-filter-btn.bg-primary,
+html[data-theme="light"] .theme-btn.active,
+html[data-theme="light"] .theme-btn.active * {
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] .text-text-secondary {
+  color: #1e293b !important; /* Deep dark slate - very high contrast & crisp */
+}
+
+html[data-theme="light"] p {
+  color: #1e293b;
+}
+
+html[data-theme="light"] strong {
+  color: #0f172a !important;
+}
+
+html[data-theme="light"] .eyebrow {
+  color: #4338ca !important;
+}
+
+html[data-theme="light"] .glass,
+html[data-theme="light"] .glass-card,
+html[data-theme="light"] .project-card,
+html[data-theme="light"] .cert-card {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04) !important;
+}
+
+html[data-theme="light"] .project-card .aspect-video,
+html[data-theme="light"] .cert-card .aspect-\[4\/3\] {
+  background-color: #f1f5f9 !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+}
+
+html[data-theme="light"] .hover-glow:hover,
+html[data-theme="light"] .project-card:hover,
+html[data-theme="light"] .cert-card:hover {
+  border-color: rgba(79, 70, 229, 0.35) !important;
+  box-shadow: 0 15px 35px -10px rgba(79, 70, 229, 0.2) !important;
+}
+
+html[data-theme="light"] .project-tech-badge {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+  border-color: #cbd5e1 !important;
+}
+
+html[data-theme="light"] .project-tech-badge:hover {
+  background-color: rgba(79, 70, 229, 0.1) !important;
+  color: #4338ca !important;
+  border-color: rgba(79, 70, 229, 0.3) !important;
+}
+
+html[data-theme="light"] .btn-ghost {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+  color: #0f172a !important;
+}
+
+html[data-theme="light"] .btn-ghost:hover {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+  border-color: rgba(15, 23, 42, 0.3) !important;
+}
+
+html[data-theme="light"] .project-filter-btn {
+  background-color: #ffffff;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+html[data-theme="light"] .project-filter-btn:hover {
+  color: #0f172a;
+  background-color: #f8fafc;
+}
+
+html[data-theme="light"] .project-filter-btn.bg-primary {
+  background: linear-gradient(120deg, #4f46e5, #6366f1) !important;
+  border-color: transparent !important;
+}
+
+html[data-theme="light"] .theme-switcher-pill {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+html[data-theme="light"] .theme-btn {
+  color: #64748b;
+}
+
+html[data-theme="light"] .theme-btn:hover {
+  color: #0f172a;
+  background-color: rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="light"] .theme-btn.active {
+  background: linear-gradient(120deg, #4f46e5, #6366f1) !important;
+  box-shadow: 0 2px 10px rgba(79, 70, 229, 0.35) !important;
+}
+
+html[data-theme="light"] #mobile-menu {
+  background-color: rgba(255, 255, 255, 0.97) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.2) !important;
+}
+
+html[data-theme="light"] #mobile-menu a {
+  color: #475569 !important;
+}
+
+html[data-theme="light"] #mobile-menu a:hover {
+  color: #0f172a !important;
+  background-color: rgba(15, 23, 42, 0.05) !important;
+}
+
+html[data-theme="light"] #mobile-menu a.text-primary {
+  color: #4f46e5 !important;
+}
+
+html[data-theme="light"] #mobile-menu-btn,
+html[data-theme="light"] #mobile-theme-cycle-btn {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  color: #0f172a !important;
+}
+
+html[data-theme="light"] #contact-form {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+html[data-theme="light"] #contact-form label {
+  color: #0f172a !important;
+}
+
+html[data-theme="light"] footer {
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+html[data-theme="light"] footer .text-text-secondary {
+  color: #64748b !important;
+}
+
+html[data-theme="light"] .modal-overlay {
+  background: rgba(15, 23, 42, 0.6);
+}
+
+html[data-theme="light"] .modal-box {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+html[data-theme="light"] .orbit-icon {
+  background-color: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+}
+
+html[data-theme="light"] .timeline-line {
+  background: linear-gradient(180deg, #6366f1, #0ea5e9, rgba(99, 102, 241, 0.1)) !important;
+}
+
+html[data-theme="light"] .timeline-line ~ div .rounded-full.bg-\[\#050816\] {
+  background-color: #ffffff !important;
+}
+
+/* ============================================================
+   THEME 2: GALAXY MODE (MODE GALAXY - COSMIC SPACE)
+   ============================================================ */
+html[data-theme="galaxy"] {
+  --bg-color: #050110;
+  --primary-color: #c084fc;
+  --secondary-color: #38bdf8;
+  --accent-color: #f43f5e;
+}
+
+html[data-theme="galaxy"] body {
+  background-color: #050110 !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="galaxy"] .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(168, 85, 247, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(168, 85, 247, 0.08) 1px, transparent 1px) !important;
+  opacity: 0.55 !important;
+}
+
+html[data-theme="galaxy"] .bg-radial-glow {
+  background: 
+    radial-gradient(circle at 15% 25%, rgba(168, 85, 247, 0.35) 0%, transparent 45%),
+    radial-gradient(circle at 85% 65%, rgba(56, 189, 248, 0.28) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(244, 63, 94, 0.22) 0%, transparent 55%) !important;
+}
+
+html[data-theme="galaxy"] header nav {
+  background-color: rgba(18, 5, 36, 0.75) !important;
+  border-color: rgba(192, 132, 252, 0.3) !important;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.25) !important;
+}
+
+html[data-theme="galaxy"] .navbar-nav-links a {
+  color: #cbd5e1 !important;
+}
+
+html[data-theme="galaxy"] .navbar-nav-links a:hover {
+  color: #ffffff !important;
+  background-color: rgba(168, 85, 247, 0.15) !important;
+}
+
+html[data-theme="galaxy"] .navbar-nav-links a.text-primary {
+  color: #d8b4fe !important;
+  background-color: rgba(168, 85, 247, 0.15) !important;
+  text-shadow: 0 0 12px rgba(192, 132, 252, 0.7) !important;
+}
+
+html[data-theme="galaxy"] .glass,
+html[data-theme="galaxy"] .glass-card,
+html[data-theme="galaxy"] .project-card,
+html[data-theme="galaxy"] .cert-card {
+  background-color: rgba(22, 7, 44, 0.65) !important;
+  border-color: rgba(192, 132, 252, 0.25) !important;
+  box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.3) !important;
+}
+
+html[data-theme="galaxy"] .hover-glow:hover,
+html[data-theme="galaxy"] .project-card:hover,
+html[data-theme="galaxy"] .cert-card:hover {
+  border-color: rgba(192, 132, 252, 0.6) !important;
+  box-shadow: 0 0 35px rgba(168, 85, 247, 0.45), 0 0 15px rgba(56, 189, 248, 0.3) !important;
+}
+
+html[data-theme="galaxy"] .project-tech-badge {
+  background-color: rgba(168, 85, 247, 0.12) !important;
+  color: #e9d5ff !important;
+  border-color: rgba(192, 132, 252, 0.3) !important;
+}
+
+html[data-theme="galaxy"] .project-tech-badge:hover {
+  background-color: rgba(168, 85, 247, 0.3) !important;
+  color: #ffffff !important;
+  border-color: #c084fc !important;
+  box-shadow: 0 0 15px rgba(192, 132, 252, 0.6) !important;
+}
+
+html[data-theme="galaxy"] .btn-primary {
+  background-image: linear-gradient(120deg, #9333ea, #ec4899) !important;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.5) !important;
+}
+
+html[data-theme="galaxy"] .gradient-text {
+  background-image: linear-gradient(90deg, #c084fc, #38bdf8, #f43f5e) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+html[data-theme="galaxy"] .text-text-secondary {
+  color: #e2e8f0 !important;
+}
+
+html[data-theme="galaxy"] p {
+  color: #e2e8f0;
+}
+
+html[data-theme="galaxy"] strong {
+  color: #ffffff !important;
+}
+
+html[data-theme="galaxy"] .eyebrow {
+  color: #d8b4fe !important;
+}
+
+html[data-theme="galaxy"] .scroll-progress-bar {
+  background: linear-gradient(90deg, #a855f7, #38bdf8, #f43f5e) !important;
+}
+
+html[data-theme="galaxy"] .theme-switcher-pill {
+  background-color: rgba(25, 8, 50, 0.85) !important;
+  border-color: rgba(192, 132, 252, 0.35) !important;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.25) !important;
+}
+
+html[data-theme="galaxy"] .theme-btn {
+  color: #c084fc;
+}
+
+html[data-theme="galaxy"] .theme-btn:hover {
+  color: #ffffff;
+  background-color: rgba(168, 85, 247, 0.2);
+}
+
+html[data-theme="galaxy"] .theme-btn.active {
+  background: linear-gradient(120deg, #a855f7, #ec4899) !important;
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.6) !important;
+}
+
+html[data-theme="galaxy"] #mobile-menu {
+  background-color: rgba(18, 5, 36, 0.95) !important;
+  border-color: rgba(192, 132, 252, 0.3) !important;
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.35) !important;
+}
+
+html[data-theme="galaxy"] .modal-overlay {
+  background: rgba(5, 1, 16, 0.88);
+}
+
+html[data-theme="galaxy"] .modal-box {
+  background: #110426;
+  border-color: rgba(192, 132, 252, 0.3);
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.35);
+}
+
+html[data-theme="galaxy"] .orbit-icon {
+  background-color: rgba(25, 7, 50, 0.85) !important;
+  border-color: rgba(192, 132, 252, 0.5) !important;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5) !important;
+}
+
+html[data-theme="galaxy"] .timeline-line {
+  background: linear-gradient(180deg, #c084fc, #38bdf8, rgba(168, 85, 247, 0.15)) !important;
+}
+
+html[data-theme="galaxy"] .timeline-line ~ div .rounded-full.bg-\[\#050816\] {
+  background-color: #080214 !important;
+}
+
+/* ============================================================
+   CIRCULAR AVATAR PROFILE (CLEAN GLOWING BORDER)
+   ============================================================ */
+.hero-avatar-circle {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #6c63ff, #00e5ff, #ff4d9d);
+  box-shadow: 0 0 40px rgba(108, 99, 255, 0.45), 0 0 20px rgba(0, 229, 255, 0.3);
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width: 640px) {
+  .hero-avatar-circle {
+    width: 300px;
+    height: 300px;
+    padding: 5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-avatar-circle {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+.hero-avatar-circle:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 50px rgba(0, 229, 255, 0.65), 0 0 30px rgba(108, 99, 255, 0.65);
+}
+
+.hero-avatar-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 35%, #18224c 0%, #090e24 70%, #050816 100%);
+}
+
+/* Real Person (Akbar Barokah in IDN suit) */
+.avatar-real-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transform: scale(1.02);
+  transition: transform 0.5s ease;
+}
+
+.hero-avatar-circle:hover .avatar-real-img {
+  transform: scale(1.06);
+}
+
+/* ============================================================
+   THEME 3: RAINBOW MODE (MODE PELANGI / RGB CHROMA)
+   ============================================================ */
+@keyframes rainbowShift {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes rainbowBgShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+html[data-theme="rainbow"] {
+  --bg-color: #070714;
+  --primary-color: #ff007f;
+  --secondary-color: #00e5ff;
+  --accent-color: #ffea00;
+}
+
+html[data-theme="rainbow"] body {
+  background-color: #070714 !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="rainbow"] .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px) !important;
+  opacity: 0.45 !important;
+}
+
+html[data-theme="rainbow"] .bg-radial-glow {
+  background: 
+    radial-gradient(circle at 15% 25%, rgba(255, 0, 128, 0.32) 0%, transparent 45%),
+    radial-gradient(circle at 85% 65%, rgba(0, 229, 255, 0.3) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(255, 234, 0, 0.25) 0%, transparent 55%),
+    radial-gradient(circle at 75% 20%, rgba(0, 255, 136, 0.22) 0%, transparent 45%) !important;
+  animation: rainbowShift 10s linear infinite !important;
+}
+
+html[data-theme="rainbow"] header nav {
+  background-color: rgba(15, 12, 32, 0.78) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 0 30px rgba(255, 0, 128, 0.25), 0 0 15px rgba(0, 229, 255, 0.2) !important;
+}
+
+html[data-theme="rainbow"] .navbar-nav-links a {
+  color: #e2e8f0 !important;
+}
+
+html[data-theme="rainbow"] .navbar-nav-links a:hover {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html[data-theme="rainbow"] .navbar-nav-links a.text-primary {
+  color: #38bdf8 !important;
+  background-color: rgba(56, 189, 248, 0.15) !important;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.6) !important;
+}
+
+html[data-theme="rainbow"] .gradient-text {
+  background-image: linear-gradient(90deg, #ff007f, #ff7700, #ffea00, #00ff77, #00e5ff, #7700ff, #ff007f) !important;
+  background-size: 250% auto !important;
+  animation: rainbowBgShift 4s linear infinite !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+html[data-theme="rainbow"] .scroll-progress-bar {
+  background: linear-gradient(90deg, #ff007f, #ff7700, #ffea00, #00ff77, #00e5ff, #7700ff, #ff007f) !important;
+  background-size: 200% auto !important;
+  animation: rainbowBgShift 3s linear infinite !important;
+}
+
+html[data-theme="rainbow"] .glass,
+html[data-theme="rainbow"] .glass-card,
+html[data-theme="rainbow"] .project-card,
+html[data-theme="rainbow"] .cert-card {
+  background-color: rgba(18, 14, 38, 0.72) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5) !important;
+}
+
+html[data-theme="rainbow"] .hover-glow:hover,
+html[data-theme="rainbow"] .project-card:hover,
+html[data-theme="rainbow"] .cert-card:hover {
+  border-color: rgba(0, 229, 255, 0.6) !important;
+  box-shadow: 0 0 30px rgba(255, 0, 128, 0.35), 0 0 20px rgba(0, 229, 255, 0.35) !important;
+}
+
+html[data-theme="rainbow"] .hero-avatar-circle {
+  background: linear-gradient(135deg, #ff007f, #ff7700, #ffea00, #00ff77, #00e5ff, #7700ff, #ff007f) !important;
+  background-size: 300% 300% !important;
+  animation: rainbowBgShift 4s linear infinite !important;
+  box-shadow: 0 0 45px rgba(255, 0, 128, 0.5), 0 0 25px rgba(0, 229, 255, 0.4) !important;
+}
+
+html[data-theme="rainbow"] .theme-switcher-pill {
+  background-color: rgba(20, 16, 42, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 0 18px rgba(255, 0, 128, 0.3) !important;
+}
+
+html[data-theme="rainbow"] .theme-btn {
+  color: #cbd5e1;
+}
+
+html[data-theme="rainbow"] .theme-btn:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+html[data-theme="rainbow"] .theme-btn.active {
+  background: linear-gradient(120deg, #ff007f, #7700ff, #00e5ff) !important;
+  box-shadow: 0 0 16px rgba(255, 0, 128, 0.65) !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="rainbow"] .btn-primary {
+  background-image: linear-gradient(120deg, #ff007f, #7700ff) !important;
+  box-shadow: 0 0 30px rgba(255, 0, 128, 0.5) !important;
+}
+
+html[data-theme="rainbow"] .text-text-secondary {
+  color: #e2e8f0 !important;
+}
+
+html[data-theme="rainbow"] p {
+  color: #e2e8f0;
+}
+
+html[data-theme="rainbow"] strong {
+  color: #ffffff !important;
+}
+
+html[data-theme="rainbow"] .eyebrow {
+  color: #38bdf8 !important;
+}
+
+html[data-theme="rainbow"] #mobile-menu {
+  background-color: rgba(18, 14, 38, 0.96) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 0 40px rgba(255, 0, 128, 0.35) !important;
+}
+
+html[data-theme="rainbow"] .modal-overlay {
+  background: rgba(7, 7, 20, 0.88);
+}
+
+html[data-theme="rainbow"] .modal-box {
+  background: #110e28;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 40px rgba(255, 0, 128, 0.35);
+}
+
+/* ============================================================
+   3D IMMERSIVE WELCOME / SPLASH SCREEN
+   ============================================================ */
+#welcome-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: radial-gradient(circle at 50% 50%, #0a0e27 0%, #050816 80%, #02030a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  overflow: hidden;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s ease,
+              visibility 0.8s;
+}
+
+#welcome-screen.welcome-warp-out {
+  transform: scale(1.6) translateZ(400px);
+  filter: blur(14px) brightness(1.5);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#welcome-screen.welcome-hidden {
+  opacity: 0;
+  transform: translateY(-40px) scale(1.02);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.welcome-card {
+  position: relative;
+  z-index: 10;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.12s ease-out;
+  padding: 2.75rem 2.25rem;
+  border-radius: 2rem;
+  background: rgba(13, 18, 43, 0.72);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.8),
+              0 0 60px rgba(108, 99, 255, 0.4),
+              inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  animation: welcomeCardIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 3D Multilayer Pop-out depths */
+.welcome-card .welcome-pop-deep {
+  transform: translateZ(55px);
+  transform-style: preserve-3d;
+}
+
+.welcome-card .welcome-pop-mid {
+  transform: translateZ(35px);
+  transform-style: preserve-3d;
+}
+
+.welcome-card .welcome-pop-low {
+  transform: translateZ(20px);
+  transform-style: preserve-3d;
+}
+
+/* 3D Text Shadow */
+.welcome-text-3d {
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.7), 
+               0 0 35px rgba(108, 99, 255, 0.55);
+}
+
+#welcome-3d-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes welcomeCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.92) rotateX(8deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+.welcome-logo-box {
+  animation: welcomePulse 2.4s ease-in-out infinite;
+}
+
+@keyframes welcomePulse {
+  0%, 100% {
+    transform: scale(1) rotateZ(0deg);
+    box-shadow: 0 0 35px rgba(108, 99, 255, 0.55), 0 0 70px rgba(0, 229, 255, 0.3);
+  }
+  50% {
+    transform: scale(1.08) rotateZ(2deg);
+    box-shadow: 0 0 55px rgba(108, 99, 255, 0.85), 0 0 100px rgba(0, 229, 255, 0.55);
+  }
+}
+
+.welcome-glow-orb {
+  animation: welcomeOrbShift 6s ease-in-out infinite alternate;
+}
+
+@keyframes welcomeOrbShift {
+  0% {
+    transform: translate(-10%, -10%) scale(1);
+  }
+  100% {
+    transform: translate(10%, 10%) scale(1.15);
+  }
+}
+
+/* ============================================================
+   UNIVERSAL 3D CARD PARALLAX & DEPTH STYLES
+   ============================================================ */
+.glass-card,
+.project-card,
+.certificate-card,
+#hero-tilt-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  position: relative;
+  will-change: transform;
+}
+
+/* 3D Specular Glare Highlight */
+.card-3d-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 15;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: overlay;
+}
+
+/* 3D Elevated Shadow on Hover */
+.glass-card:hover,
+.project-card:hover,
+.certificate-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 35px rgba(108, 99, 255, 0.35) !important;
+}
+
+/* Enhanced 3D Layering */
+.glass-card h3,
+.project-card h3,
+.glass-card .eyebrow,
+.project-card .project-tech-badge,
+.glass-card a,
+.project-card a {
+  transform-style: preserve-3d;
+}
+
+/* Contact form & inputs MUST remain 100% steady, flat, and comfortable to type (No 3D tilt) */
+#contact .glass-card,
+#contact-form,
+#contact-form input,
+#contact-form textarea,
+#contact-form button,
+#contact-form label {
+  transform: none !important;
+  perspective: none !important;
+  transform-style: flat !important;
+  will-change: auto !important;
+}
+
+#contact .card-3d-glare {
+  display: none !important;
+}
+
+/* Three.js 3D Background Canvas */
+#three-bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  pointer-events: none;
+}

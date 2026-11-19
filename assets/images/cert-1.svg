@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="600" height="420">
+  <defs>
+    <linearGradient id="certBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1424"/>
+      <stop offset="100%" stop-color="#060913"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="primaryBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6C63FF"/>
+      <stop offset="50%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#FF4D9D"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer Certificate Card -->
+  <rect width="600" height="420" rx="16" fill="url(#certBg)"/>
+  <rect x="15" y="15" width="570" height="390" rx="12" fill="none" stroke="url(#primaryBorder)" stroke-width="2"/>
+  <rect x="25" y="25" width="550" height="370" rx="8" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+  <!-- Seal / Badge -->
+  <g transform="translate(300, 95)">
+    <circle cx="0" cy="0" r="36" fill="url(#goldGrad)" opacity="0.15"/>
+    <circle cx="0" cy="0" r="30" fill="none" stroke="url(#goldGrad)" stroke-width="2"/>
+    <polygon points="0,-16 5,-5 16,-5 8,3 11,14 0,7 -11,14 -8,3 -16,-5 -5,-5" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="300" y="165" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#00E5FF" letter-spacing="4" text-anchor="middle">CERTIFICATE OF COMPLETION</text>
+  <text x="300" y="210" font-family="'Inter', sans-serif" font-size="22" font-weight="800" fill="#FFFFFF" text-anchor="middle">[Nama Sertifikat / Course Title]</text>
+  <text x="300" y="240" font-family="'Inter', sans-serif" font-size="14" fill="#94A3B8" text-anchor="middle">Diberikan kepada:</text>
+  <text x="300" y="275" font-family="'Inter', sans-serif" font-size="20" font-weight="700" fill="#6C63FF" text-anchor="middle">Akbar Barokah</text>
+  
+  <line x1="120" y1="330" x2="240" y2="330" stroke="#334155" stroke-width="1.5"/>
+  <text x="180" y="350" font-family="'Inter', sans-serif" font-size="11" fill="#64748B" text-anchor="middle">[Penerbit / Platform]</text>
+
+  <line x1="360" y1="330" x2="480" y2="330" stroke="#334155" stroke-width="1.5"/>
+  <text x="420" y="350" font-family="'Inter', sans-serif" font-size="11" fill="#64748B" text-anchor="middle">[ID Kredensial / Tanggal]</text>
+</svg>
